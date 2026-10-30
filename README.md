@@ -29,8 +29,8 @@ Add the technologies you genuinely use:
 
 # 📫 Contact
 
-- GitHub: https://github.com/YOUR_USERNAME
-- Email: YOUR_PROFESSIONAL_EMAIL
+- GitHub: https://github.com/niraulaniragh
+- Email: niraulaniragh@gmail.com
 - Portfolio: Coming soon
 
 

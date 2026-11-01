@@ -299,12 +299,19 @@
         const subject = document.getElementById('subject').value.trim();
         const message = document.getElementById('message').value.trim();
 
-        const mailtoSubject = encodeURIComponent(`[NEXUS Portfolio] ${subject}`);
+        // Create a clean, professional email format that won't trigger spam filters
+        const mailtoSubject = encodeURIComponent(subject);
         const mailtoBody = encodeURIComponent(
-            `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+`Hi,
+
+${message}
+
+---
+From: ${name}
+Reply to: ${email}`
         );
         
-        const mailtoLink = `mailto:your.email@example.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+        const mailtoLink = `mailto:niraulaniragh@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
         
         window.location.href = mailtoLink;
         

@@ -20,7 +20,7 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     
-    <!-- Preload fonts for performance -->
+    <!-- Preload fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
@@ -30,7 +30,17 @@
     <title>NEXUS — Digital Developer Portfolio</title>
 </head>
 <body>
-    <!-- Cursor glow effect -->
+    <!-- Loading screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">NEXUS<span>.</span></div>
+            <div class="loader-bar"><div class="loader-progress"></div></div>
+        </div>
+    </div>
+
+    <!-- Cursor effects -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-outline" id="cursor-outline"></div>
     <div class="cursor-glow" id="cursor-glow"></div>
     
     <!-- Navigation -->
@@ -51,6 +61,8 @@
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
+            
+            <a href="#contact" class="nav-cta btn btn-primary btn-small">Hire Me</a>
         </nav>
     </header>
 
@@ -60,31 +72,63 @@
             <div class="hero-bg-grid"></div>
             <div class="hero-glow hero-glow-1"></div>
             <div class="hero-glow hero-glow-2"></div>
+            <div class="hero-particles" id="hero-particles"></div>
             
             <div class="hero-container">
                 <div class="hero-content">
-                    <div class="hero-badge">
+                    <div class="hero-badge animate-in">
                         <span class="badge-dot"></span>
                         <span>INDEPENDENT DEVELOPER · DIGITAL CREATOR</span>
                     </div>
-                    <h1 class="hero-title">
+                    <h1 class="hero-title animate-in delay-1">
                         Turning ideas into<br>
                         <span class="gradient-text animated-gradient">digital experiences.</span>
                     </h1>
-                    <p class="hero-description">
+                    <p class="hero-description animate-in delay-2">
                         I build modern websites, powerful applications and intelligent digital solutions that help turn ambitious ideas into reality.
                     </p>
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-primary">
+                    <div class="hero-buttons animate-in delay-3">
+                        <a href="#projects" class="btn btn-primary magnetic">
                             <span>Explore my work</span>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
                                 <polyline points="12 5 19 12 12 19"></polyline>
                             </svg>
                         </a>
-                        <a href="#contact" class="btn btn-secondary">Let's talk</a>
+                        <a href="#contact" class="btn btn-secondary magnetic">Let's talk</a>
                     </div>
-                    <div class="availability-indicator">
+                    
+                    <!-- Trust indicators -->
+                    <div class="hero-trust animate-in delay-4">
+                        <div class="trust-item">
+                            <div class="trust-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                            </div>
+                            <span>Fast Delivery</span>
+                        </div>
+                        <div class="trust-item">
+                            <div class="trust-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                </svg>
+                            </div>
+                            <span>Secure Code</span>
+                        </div>
+                        <div class="trust-item">
+                            <div class="trust-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                </svg>
+                            </div>
+                            <span>Quality First</span>
+                        </div>
+                    </div>
+                    
+                    <div class="availability-indicator animate-in delay-5">
                         <span class="availability-dot"></span>
                         <span>Available for freelance projects</span>
                     </div>
@@ -92,22 +136,21 @@
                 
                 <div class="hero-visual">
                     <div class="visual-container">
-                        <!-- Premium 3D-like visual -->
                         <div class="visual-ring ring-outer"></div>
                         <div class="visual-ring ring-middle"></div>
                         <div class="visual-ring ring-inner"></div>
                         <div class="visual-core">
                             <div class="core-glow"></div>
-                            <div class="core-center"></div>
+                            <div class="core-center">
+                                <span class="core-text">&lt;/&gt;</span>
+                            </div>
                         </div>
-                        <!-- Floating particles -->
                         <div class="particle particle-1"></div>
                         <div class="particle particle-2"></div>
                         <div class="particle particle-3"></div>
                         <div class="particle particle-4"></div>
                         <div class="particle particle-5"></div>
                         <div class="particle particle-6"></div>
-                        <!-- Code snippets floating -->
                         <div class="code-float code-float-1">&lt;div&gt;</div>
                         <div class="code-float code-float-2">{ }</div>
                         <div class="code-float code-float-3">( )</div>
@@ -115,7 +158,6 @@
                 </div>
             </div>
             
-            <!-- Scroll indicator -->
             <div class="scroll-indicator">
                 <div class="scroll-mouse">
                     <div class="scroll-wheel"></div>
@@ -124,11 +166,46 @@
             </div>
         </section>
 
+        <!-- Marquee Section -->
+        <div class="marquee-section">
+            <div class="marquee-track">
+                <div class="marquee-content">
+                    <span>Web Development</span>
+                    <span class="marquee-dot">✦</span>
+                    <span>UI/UX Design</span>
+                    <span class="marquee-dot">✦</span>
+                    <span>Web Applications</span>
+                    <span class="marquee-dot">✦</span>
+                    <span>AI Integration</span>
+                    <span class="marquee-dot">✦</span>
+                    <span>Responsive Design</span>
+                    <span class="marquee-dot">✦</span>
+                    <span>Clean Code</span>
+                    <span class="marquee-dot">✦</span>
+                    <span>Web Development</span>
+                    <span class="marquee-dot">✦</span>
+                    <span>UI/UX Design</span>
+                    <span class="marquee-dot">✦</span>
+                    <span>Web Applications</span>
+                    <span class="marquee-dot">✦</span>
+                    <span>AI Integration</span>
+                    <span class="marquee-dot">✦</span>
+                    <span>Responsive Design</span>
+                    <span class="marquee-dot">✦</span>
+                    <span>Clean Code</span>
+                    <span class="marquee-dot">✦</span>
+                </div>
+            </div>
+        </div>
+
         <!-- About Section -->
         <section class="about" id="about">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-label">ABOUT ME</span>
+                    <span class="section-label">
+                        <span class="label-line"></span>
+                        ABOUT ME
+                    </span>
                     <h2 class="section-title">Building more than<br><span class="gradient-text">just websites.</span></h2>
                 </div>
                 
@@ -137,33 +214,42 @@
                         <p class="about-lead">I'm an independent developer passionate about creating useful, thoughtful and visually engaging digital experiences.</p>
                         <p>I enjoy turning ideas into real products, solving problems through technology and continuously improving my development skills.</p>
                         
-                        <div class="about-stats">
-                            <div class="stat-item">
-                                <span class="stat-icon">
+                        <div class="about-highlights">
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                        <polyline points="16 18 22 12 16 6"></polyline>
+                                        <polyline points="8 6 2 12 8 18"></polyline>
                                     </svg>
-                                </span>
-                                <span>Clean, maintainable code</span>
+                                </div>
+                                <div class="highlight-text">
+                                    <strong>Clean Code</strong>
+                                    <span>Maintainable & scalable</span>
+                                </div>
                             </div>
-                            <div class="stat-item">
-                                <span class="stat-icon">
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                                        <line x1="12" y1="18" x2="12.01" y2="18"></line>
                                     </svg>
-                                </span>
-                                <span>Responsive & accessible</span>
+                                </div>
+                                <div class="highlight-text">
+                                    <strong>Responsive</strong>
+                                    <span>All devices supported</span>
+                                </div>
                             </div>
-                            <div class="stat-item">
-                                <span class="stat-icon">
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
                                     </svg>
-                                </span>
-                                <span>Performance focused</span>
+                                </div>
+                                <div class="highlight-text">
+                                    <strong>Fast Delivery</strong>
+                                    <span>On-time, every time</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -171,8 +257,9 @@
                     <div class="value-cards">
                         <div class="value-card" data-tilt>
                             <div class="card-glow"></div>
+                            <div class="card-number">01</div>
                             <div class="value-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                     <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
                                 </svg>
                             </div>
@@ -182,8 +269,9 @@
                         
                         <div class="value-card" data-tilt>
                             <div class="card-glow"></div>
+                            <div class="card-number">02</div>
                             <div class="value-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                     <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
                                 </svg>
                             </div>
@@ -193,8 +281,9 @@
                         
                         <div class="value-card" data-tilt>
                             <div class="card-glow"></div>
+                            <div class="card-number">03</div>
                             <div class="value-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                     <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
                                     <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
                                 </svg>
@@ -211,23 +300,36 @@
         <section class="services" id="services">
             <div class="container">
                 <div class="section-header center">
-                    <span class="section-label">SERVICES</span>
+                    <span class="section-label">
+                        <span class="label-line"></span>
+                        SERVICES
+                        <span class="label-line"></span>
+                    </span>
                     <h2 class="section-title">What I can build<br><span class="gradient-text">for you.</span></h2>
+                    <p class="section-subtitle">Comprehensive digital solutions tailored to your needs</p>
                 </div>
                 
                 <div class="services-grid">
-                    <article class="service-card" data-tilt>
+                    <article class="service-card" data-tilt data-service="web">
                         <div class="service-glow"></div>
-                        <span class="service-number">01</span>
-                        <div class="service-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                                <line x1="8" y1="21" x2="16" y2="21"></line>
-                                <line x1="12" y1="17" x2="12" y2="21"></line>
-                            </svg>
+                        <div class="service-header">
+                            <span class="service-number">01</span>
+                            <div class="service-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                                </svg>
+                            </div>
                         </div>
                         <h3>Website Development</h3>
                         <p>Modern, responsive websites designed to present businesses professionally and engage visitors.</p>
+                        <ul class="service-features">
+                            <li>Custom Design</li>
+                            <li>Mobile Responsive</li>
+                            <li>SEO Optimized</li>
+                            <li>Fast Loading</li>
+                        </ul>
                         <div class="service-tags">
                             <span>Landing Pages</span>
                             <span>Business Sites</span>
@@ -235,17 +337,25 @@
                         </div>
                     </article>
                     
-                    <article class="service-card" data-tilt>
+                    <article class="service-card" data-tilt data-service="app">
                         <div class="service-glow"></div>
-                        <span class="service-number">02</span>
-                        <div class="service-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="16 18 22 12 16 6"></polyline>
-                                <polyline points="8 6 2 12 8 18"></polyline>
-                            </svg>
+                        <div class="service-header">
+                            <span class="service-number">02</span>
+                            <div class="service-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <polyline points="16 18 22 12 16 6"></polyline>
+                                    <polyline points="8 6 2 12 8 18"></polyline>
+                                </svg>
+                            </div>
                         </div>
                         <h3>Web Applications</h3>
                         <p>Interactive applications, dashboards, management systems and useful digital tools.</p>
+                        <ul class="service-features">
+                            <li>User Authentication</li>
+                            <li>Real-time Updates</li>
+                            <li>Data Management</li>
+                            <li>API Integration</li>
+                        </ul>
                         <div class="service-tags">
                             <span>Dashboards</span>
                             <span>Tools</span>
@@ -253,18 +363,26 @@
                         </div>
                     </article>
                     
-                    <article class="service-card" data-tilt>
+                    <article class="service-card" data-tilt data-service="ai">
                         <div class="service-glow"></div>
-                        <span class="service-number">03</span>
-                        <div class="service-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"></path>
-                                <circle cx="8" cy="14" r="1"></circle>
-                                <circle cx="16" cy="14" r="1"></circle>
-                            </svg>
+                        <div class="service-header">
+                            <span class="service-number">03</span>
+                            <div class="service-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"></path>
+                                    <circle cx="8" cy="14" r="1"></circle>
+                                    <circle cx="16" cy="14" r="1"></circle>
+                                </svg>
+                            </div>
                         </div>
                         <h3>AI & Automation</h3>
                         <p>Intelligent workflows and AI-powered features that help simplify repetitive tasks.</p>
+                        <ul class="service-features">
+                            <li>Smart Automation</li>
+                            <li>AI Integration</li>
+                            <li>Process Optimization</li>
+                            <li>Chatbot Development</li>
+                        </ul>
                         <div class="service-tags">
                             <span>Workflows</span>
                             <span>Integrations</span>
@@ -272,18 +390,26 @@
                         </div>
                     </article>
                     
-                    <article class="service-card" data-tilt>
+                    <article class="service-card" data-tilt data-service="ui">
                         <div class="service-glow"></div>
-                        <span class="service-number">04</span>
-                        <div class="service-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                                <polyline points="21 15 16 10 5 21"></polyline>
-                            </svg>
+                        <div class="service-header">
+                            <span class="service-number">04</span>
+                            <div class="service-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                    <polyline points="21 15 16 10 5 21"></polyline>
+                                </svg>
+                            </div>
                         </div>
                         <h3>UI & Digital Experiences</h3>
                         <p>Clean, intuitive interfaces focused on usability and visual quality.</p>
+                        <ul class="service-features">
+                            <li>User Interface Design</li>
+                            <li>Interactive Prototypes</li>
+                            <li>Motion Design</li>
+                            <li>Design Systems</li>
+                        </ul>
                         <div class="service-tags">
                             <span>UI Design</span>
                             <span>Prototypes</span>
@@ -298,76 +424,82 @@
         <section class="tech-stack" id="tech-stack">
             <div class="container">
                 <div class="section-header center">
-                    <span class="section-label">TOOLKIT</span>
-                    <h2 class="section-title">Tools behind<br><span class="gradient-text">the work.</span></h2>
+                    <span class="section-label">
+                        <span class="label-line"></span>
+                        TOOLKIT
+                        <span class="label-line"></span>
+                    </span>
+                    <h2 class="section-title">Technologies I<br><span class="gradient-text">work with.</span></h2>
                 </div>
                 
-                <div class="tech-showcase">
-                    <div class="tech-orbit">
-                        <div class="tech-center">
-                            <span>&lt;/&gt;</span>
+                <div class="tech-grid">
+                    <div class="tech-card" data-tech="html">
+                        <div class="tech-icon-large">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M4 4h16v16H4V4z"/>
+                                <text x="12" y="14" text-anchor="middle" font-size="6" fill="currentColor" font-weight="600">&lt;/&gt;</text>
+                            </svg>
                         </div>
-                        
-                        <div class="tech-item-orbit" style="--angle: 0deg; --delay: 0s">
-                            <div class="tech-badge">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M4 4h16v16H4V4z" stroke="currentColor" stroke-width="1.5"/>
-                                    <text x="12" y="14" text-anchor="middle" font-size="6" fill="currentColor" font-weight="600">&lt;/&gt;</text>
-                                </svg>
-                                <span>HTML5</span>
-                            </div>
+                        <span class="tech-name">HTML5</span>
+                        <span class="tech-desc">Structure</span>
+                    </div>
+                    
+                    <div class="tech-card" data-tech="css">
+                        <div class="tech-icon-large">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M4 4h16v16H4V4z"/>
+                                <text x="12" y="14" text-anchor="middle" font-size="5" fill="currentColor" font-weight="600">CSS</text>
+                            </svg>
                         </div>
-                        
-                        <div class="tech-item-orbit" style="--angle: 60deg; --delay: 0.1s">
-                            <div class="tech-badge">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M4 4h16v16H4V4z" stroke="currentColor" stroke-width="1.5"/>
-                                    <text x="12" y="14" text-anchor="middle" font-size="5" fill="currentColor" font-weight="600">CSS</text>
-                                </svg>
-                                <span>CSS3</span>
-                            </div>
+                        <span class="tech-name">CSS3</span>
+                        <span class="tech-desc">Styling</span>
+                    </div>
+                    
+                    <div class="tech-card" data-tech="js">
+                        <div class="tech-icon-large">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="4" y="4" width="16" height="16" rx="2"/>
+                                <text x="12" y="14" text-anchor="middle" font-size="6" fill="currentColor" font-weight="700">JS</text>
+                            </svg>
                         </div>
-                        
-                        <div class="tech-item-orbit" style="--angle: 120deg; --delay: 0.2s">
-                            <div class="tech-badge">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/>
-                                    <text x="12" y="14" text-anchor="middle" font-size="6" fill="currentColor" font-weight="700">JS</text>
-                                </svg>
-                                <span>JavaScript</span>
-                            </div>
+                        <span class="tech-name">JavaScript</span>
+                        <span class="tech-desc">Interactivity</span>
+                    </div>
+                    
+                    <div class="tech-card" data-tech="git">
+                        <div class="tech-icon-large">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="4"/>
+                                <line x1="1.05" y1="12" x2="7" y2="12"/>
+                                <line x1="17.01" y1="12" x2="22.96" y2="12"/>
+                                <line x1="12" y1="1.05" x2="12" y2="7"/>
+                                <line x1="12" y1="17.01" x2="12" y2="22.96"/>
+                            </svg>
                         </div>
-                        
-                        <div class="tech-item-orbit" style="--angle: 180deg; --delay: 0.3s">
-                            <div class="tech-badge">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <circle cx="12" cy="12" r="4"/>
-                                    <line x1="1.05" y1="12" x2="7" y2="12"/>
-                                    <line x1="17.01" y1="12" x2="22.96" y2="12"/>
-                                </svg>
-                                <span>Git</span>
-                            </div>
+                        <span class="tech-name">Git</span>
+                        <span class="tech-desc">Version Control</span>
+                    </div>
+                    
+                    <div class="tech-card" data-tech="github">
+                        <div class="tech-icon-large">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                            </svg>
                         </div>
-                        
-                        <div class="tech-item-orbit" style="--angle: 240deg; --delay: 0.4s">
-                            <div class="tech-badge">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77"/>
-                                </svg>
-                                <span>GitHub</span>
-                            </div>
+                        <span class="tech-name">GitHub</span>
+                        <span class="tech-desc">Collaboration</span>
+                    </div>
+                    
+                    <div class="tech-card" data-tech="vscode">
+                        <div class="tech-icon-large">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="3" y1="9" x2="21" y2="9"/>
+                                <line x1="9" y1="21" x2="9" y2="9"/>
+                            </svg>
                         </div>
-                        
-                        <div class="tech-item-orbit" style="--angle: 300deg; --delay: 0.5s">
-                            <div class="tech-badge">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                                    <line x1="3" y1="9" x2="21" y2="9"/>
-                                    <line x1="9" y1="21" x2="9" y2="9"/>
-                                </svg>
-                                <span>VS Code</span>
-                            </div>
-                        </div>
+                        <span class="tech-name">VS Code</span>
+                        <span class="tech-desc">Development</span>
                     </div>
                 </div>
             </div>
@@ -377,101 +509,138 @@
         <section class="projects" id="projects">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-label">PORTFOLIO</span>
+                    <span class="section-label">
+                        <span class="label-line"></span>
+                        PORTFOLIO
+                    </span>
                     <h2 class="section-title">Selected<br><span class="gradient-text">work.</span></h2>
+                    <p class="section-subtitle">Real projects with real results</p>
                 </div>
                 
-                <div class="projects-grid">
-                    <!-- Featured Project: CS Master Pro -->
-                    <article class="project-card featured">
-                        <div class="project-image">
-                            <div class="project-preview">
-                                <div class="browser-mockup">
-                                    <div class="browser-header">
-                                        <div class="browser-dots">
-                                            <span></span><span></span><span></span>
-                                        </div>
-                                        <div class="browser-url">cs-master-pro</div>
+                <div class="projects-showcase">
+                    <!-- Featured Project -->
+                    <article class="project-featured">
+                        <div class="project-image-wrapper">
+                            <div class="project-browser">
+                                <div class="browser-bar">
+                                    <div class="browser-dots">
+                                        <span></span><span></span><span></span>
                                     </div>
-                                    <div class="browser-content">
-                                        <div class="preview-placeholder">
-                                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <div class="browser-url">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                        </svg>
+                                        <span>niraulaniragh.github.io/cs-master-pro</span>
+                                    </div>
+                                </div>
+                                <div class="browser-screen">
+                                    <div class="project-placeholder-content">
+                                        <div class="placeholder-icon">
+                                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
                                                 <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
                                                 <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
                                             </svg>
-                                            <span>CS Master Pro</span>
                                         </div>
+                                        <span class="placeholder-title">CS Master Pro</span>
+                                        <span class="placeholder-subtitle">Interactive Learning Platform</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="project-overlay"></div>
+                            <div class="project-float-badge">
+                                <span class="badge-live"></span>
+                                Live Project
+                            </div>
                         </div>
-                        <div class="project-content">
+                        
+                        <div class="project-info">
                             <div class="project-meta">
-                                <span class="project-type">Education Platform</span>
-                                <span class="project-year">2024</span>
+                                <span class="meta-category">Education Platform</span>
+                                <span class="meta-divider">•</span>
+                                <span class="meta-year">2024</span>
                             </div>
+                            
                             <h3 class="project-title">CS Master Pro</h3>
-                            <p class="project-description">An interactive Edexcel IGCSE Computer Science revision platform designed to make learning and exam preparation more engaging.</p>
-                            <div class="project-tags">
-                                <span class="tag">HTML5</span>
-                                <span class="tag">CSS3</span>
-                                <span class="tag">JavaScript</span>
-                                <span class="tag">Education</span>
+                            
+                            <p class="project-description">An interactive Edexcel IGCSE Computer Science revision platform designed to make learning and exam preparation more engaging. Features quizzes, flashcards, and comprehensive study materials.</p>
+                            
+                            <div class="project-features">
+                                <div class="feature">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                    <span>Interactive Quizzes</span>
+                                </div>
+                                <div class="feature">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                    <span>Progress Tracking</span>
+                                </div>
+                                <div class="feature">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                    <span>Mobile Responsive</span>
+                                </div>
                             </div>
-                            <div class="project-links">
-                                <a href="https://niraulaniragh.github.io/cs-master-pro/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-small">
-                                    <span>View Live</span>
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML5</span>
+                                <span class="tech-tag">CSS3</span>
+                                <span class="tech-tag">JavaScript</span>
+                            </div>
+                            
+                            <div class="project-actions">
+                                <a href="https://niraulaniragh.github.io/cs-master-pro/" target="_blank" rel="noopener noreferrer" class="btn btn-primary magnetic">
+                                    <span>View Live Project</span>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                                         <polyline points="15 3 21 3 21 9"></polyline>
                                         <line x1="10" y1="14" x2="21" y2="3"></line>
                                     </svg>
                                 </a>
-                                <a href="https://github.com/niraulaniragh/cs-master-pro" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-small">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <a href="https://github.com/niraulaniragh/cs-master-pro" target="_blank" rel="noopener noreferrer" class="btn btn-secondary magnetic">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
                                     </svg>
-                                    <span>Source</span>
+                                    <span>Source Code</span>
                                 </a>
                             </div>
                         </div>
                     </article>
                     
-                    <!-- Future Projects -->
-                    <article class="project-card coming-soon">
-                        <div class="project-image">
-                            <div class="coming-soon-content">
-                                <div class="pulse-ring"></div>
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <polyline points="12 6 12 12 16 14"></polyline>
-                                </svg>
+                    <!-- Coming Soon Projects -->
+                    <div class="projects-upcoming">
+                        <h4 class="upcoming-title">More Projects Coming Soon</h4>
+                        <div class="upcoming-grid">
+                            <div class="upcoming-card">
+                                <div class="upcoming-icon">
+                                    <div class="pulse-ring"></div>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                </div>
+                                <span class="upcoming-label">In Development</span>
+                                <p>New project in progress</p>
+                            </div>
+                            <div class="upcoming-card">
+                                <div class="upcoming-icon">
+                                    <div class="pulse-ring"></div>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                </div>
+                                <span class="upcoming-label">Coming Soon</span>
+                                <p>Exciting project ahead</p>
                             </div>
                         </div>
-                        <div class="project-content">
-                            <span class="coming-soon-badge">In Development</span>
-                            <h3 class="project-title">Future Project</h3>
-                            <p class="project-description">A new project is in development. Stay tuned for updates.</p>
-                        </div>
-                    </article>
-                    
-                    <article class="project-card coming-soon">
-                        <div class="project-image">
-                            <div class="coming-soon-content">
-                                <div class="pulse-ring"></div>
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <polyline points="12 6 12 12 16 14"></polyline>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <span class="coming-soon-badge">Coming Soon</span>
-                            <h3 class="project-title">Future Project</h3>
-                            <p class="project-description">Another exciting project is on the way.</p>
-                        </div>
-                    </article>
+                    </div>
                 </div>
             </div>
         </section>
@@ -480,37 +649,44 @@
         <section class="process" id="process">
             <div class="container">
                 <div class="section-header center">
-                    <span class="section-label">PROCESS</span>
+                    <span class="section-label">
+                        <span class="label-line"></span>
+                        PROCESS
+                        <span class="label-line"></span>
+                    </span>
                     <h2 class="section-title">From idea to<br><span class="gradient-text">reality.</span></h2>
+                    <p class="section-subtitle">A clear, collaborative approach to every project</p>
                 </div>
                 
-                <div class="process-timeline">
-                    <div class="timeline-line"></div>
+                <div class="process-steps">
+                    <div class="process-line"></div>
                     
                     <div class="process-step">
-                        <div class="step-marker">
-                            <span class="step-number">01</span>
+                        <div class="step-indicator">
+                            <div class="step-dot"></div>
+                            <span class="step-num">01</span>
                         </div>
                         <div class="step-card">
                             <div class="step-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                     <circle cx="12" cy="12" r="10"></circle>
                                     <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
                                     <line x1="12" y1="17" x2="12.01" y2="17"></line>
                                 </svg>
                             </div>
                             <h3>Discover</h3>
-                            <p>Understand the idea, goals and requirements through discussion and research.</p>
+                            <p>Understanding your vision, goals, and requirements through detailed discussion.</p>
                         </div>
                     </div>
                     
                     <div class="process-step">
-                        <div class="step-marker">
-                            <span class="step-number">02</span>
+                        <div class="step-indicator">
+                            <div class="step-dot"></div>
+                            <span class="step-num">02</span>
                         </div>
                         <div class="step-card">
                             <div class="step-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                     <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
                                     <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
                                     <path d="M2 2l7.586 7.586"></path>
@@ -518,41 +694,62 @@
                                 </svg>
                             </div>
                             <h3>Design</h3>
-                            <p>Plan the structure, create wireframes and design the user experience.</p>
+                            <p>Creating wireframes, mockups, and planning the perfect user experience.</p>
                         </div>
                     </div>
                     
                     <div class="process-step">
-                        <div class="step-marker">
-                            <span class="step-number">03</span>
+                        <div class="step-indicator">
+                            <div class="step-dot"></div>
+                            <span class="step-num">03</span>
                         </div>
                         <div class="step-card">
                             <div class="step-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                     <polyline points="16 18 22 12 16 6"></polyline>
                                     <polyline points="8 6 2 12 8 18"></polyline>
                                 </svg>
                             </div>
                             <h3>Develop</h3>
-                            <p>Build with clean code, test thoroughly and refine until perfect.</p>
+                            <p>Building with clean, efficient code and regular progress updates.</p>
                         </div>
                     </div>
                     
                     <div class="process-step">
-                        <div class="step-marker">
-                            <span class="step-number">04</span>
+                        <div class="step-indicator">
+                            <div class="step-dot"></div>
+                            <span class="step-num">04</span>
                         </div>
                         <div class="step-card">
                             <div class="step-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                                     <polyline points="22 4 12 14.01 9 11.01"></polyline>
                                 </svg>
                             </div>
                             <h3>Deliver</h3>
-                            <p>Launch the project, gather feedback and provide ongoing support.</p>
+                            <p>Launching your project with full support and documentation.</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <div class="cta-text">
+                        <h2>Ready to start your project?</h2>
+                        <p>Let's discuss your ideas and bring them to life.</p>
+                    </div>
+                    <a href="#contact" class="btn btn-primary btn-large magnetic">
+                        <span>Get in Touch</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </section>
@@ -560,77 +757,125 @@
         <!-- Contact Section -->
         <section class="contact" id="contact">
             <div class="container">
-                <div class="contact-wrapper">
-                    <div class="contact-header">
-                        <span class="section-label">GET IN TOUCH</span>
-                        <h2 class="section-title">
-                            Have an idea?<br>
-                            <span class="gradient-text">Let's build it.</span>
-                        </h2>
-                        <p class="contact-description">Have a project in mind or need help bringing an idea to life? I'd love to hear about it.</p>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="section-header">
+                            <span class="section-label">
+                                <span class="label-line"></span>
+                                GET IN TOUCH
+                            </span>
+                            <h2 class="section-title">Have an idea?<br><span class="gradient-text">Let's build it.</span></h2>
+                        </div>
                         
-                        <div class="contact-links">
-                            <a href="mailto:niraulaniragh@gmail.com" class="contact-link">
-                                <div class="link-icon">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <p class="contact-description">Have a project in mind or need help bringing an idea to life? I'd love to hear about it. Let's create something amazing together.</p>
+                        
+                        <div class="contact-methods">
+                            <a href="mailto:niraulaniragh@gmail.com" class="contact-method">
+                                <div class="method-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                                         <polyline points="22,6 12,13 2,6"></polyline>
                                     </svg>
                                 </div>
-                                <div class="link-content">
-                                    <span class="link-label">Email</span>
-                                    <span class="link-value">niraulaniragh@gmail.com</span>
+                                <div class="method-details">
+                                    <span class="method-label">Email me at</span>
+                                    <span class="method-value">niraulaniragh@gmail.com</span>
                                 </div>
+                                <svg class="method-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
                             </a>
-                            <a href="https://github.com/niraulaniragh" target="_blank" rel="noopener noreferrer" class="contact-link">
-                                <div class="link-icon">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            
+                            <a href="https://github.com/niraulaniragh" target="_blank" rel="noopener noreferrer" class="contact-method">
+                                <div class="method-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                         <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
                                     </svg>
                                 </div>
-                                <div class="link-content">
-                                    <span class="link-label">GitHub</span>
-                                    <span class="link-value">@niraulaniragh</span>
+                                <div class="method-details">
+                                    <span class="method-label">Follow on GitHub</span>
+                                    <span class="method-value">@niraulaniragh</span>
                                 </div>
+                                <svg class="method-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
                             </a>
+                        </div>
+                        
+                        <div class="response-time">
+                            <div class="response-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                            </div>
+                            <span>Usually responds within 24 hours</span>
                         </div>
                     </div>
                     
-                    <form class="contact-form" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" data-email="niraulaniragh@gmail.com">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" name="name" required placeholder="John Doe">
+                    <div class="contact-form-wrapper">
+                        <form class="contact-form" id="contact-form" data-email="niraulaniragh@gmail.com">
+                            <div class="form-header">
+                                <h3>Send a Message</h3>
+                                <p>Fill out the form below and I'll get back to you.</p>
                             </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" required placeholder="john@example.com">
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">
+                                        <span>Your Name</span>
+                                        <span class="required">*</span>
+                                    </label>
+                                    <input type="text" id="name" name="name" required placeholder="John Doe" autocomplete="name">
+                                    <div class="input-focus-line"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">
+                                        <span>Your Email</span>
+                                        <span class="required">*</span>
+                                    </label>
+                                    <input type="email" id="email" name="email" required placeholder="john@example.com" autocomplete="email">
+                                    <div class="input-focus-line"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required placeholder="Project inquiry">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required placeholder="Tell me about your project..." rows="5"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-full">
-                            <span>Send Message</span>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <line x1="22" y1="2" x2="11" y2="13"></line>
-                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                            </svg>
-                        </button>
-                        <p class="form-note">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <line x1="12" y1="16" x2="12" y2="12"></line>
-                                <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                            </svg>
-                            <span>Your message will open in your email client ready to send.</span>
-                        </p>
-                    </form>
+                            
+                            <div class="form-group">
+                                <label for="subject">
+                                    <span>Subject</span>
+                                    <span class="required">*</span>
+                                </label>
+                                <input type="text" id="subject" name="subject" required placeholder="Project inquiry">
+                                <div class="input-focus-line"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">
+                                    <span>Message</span>
+                                    <span class="required">*</span>
+                                </label>
+                                <textarea id="message" name="message" required placeholder="Tell me about your project, goals, and timeline..." rows="5"></textarea>
+                                <div class="input-focus-line"></div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-full magnetic">
+                                <span>Send Message</span>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                </svg>
+                            </button>
+                            
+                            <p class="form-disclaimer">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                </svg>
+                                <span>Your information is secure and will never be shared.</span>
+                            </p>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
@@ -639,37 +884,50 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-main">
                 <div class="footer-brand">
                     <a href="#home" class="footer-logo">NEXUS<span class="logo-dot">.</span></a>
-                    <p>Building digital experiences with purpose.</p>
+                    <p>Building digital experiences with purpose and passion.</p>
+                    <div class="footer-social">
+                        <a href="https://github.com/niraulaniragh" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                            </svg>
+                        </a>
+                        <a href="mailto:niraulaniragh@gmail.com" aria-label="Email" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
                 
-                <nav class="footer-nav">
+                <div class="footer-links">
                     <div class="footer-col">
                         <h4>Navigation</h4>
                         <a href="#home">Home</a>
                         <a href="#about">About</a>
                         <a href="#services">Services</a>
+                        <a href="#projects">Projects</a>
                     </div>
                     <div class="footer-col">
                         <h4>Connect</h4>
-                        <a href="#projects">Projects</a>
                         <a href="#contact">Contact</a>
                         <a href="https://github.com/niraulaniragh" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <a href="mailto:niraulaniragh@gmail.com">Email</a>
                     </div>
-                </nav>
+                </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; <span id="current-year">2026</span> NEXUS. All rights reserved.</p>
-                <div class="footer-social">
-                    <a href="https://github.com/niraulaniragh" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-                        </svg>
-                    </a>
-                </div>
+                <p>&copy; <span id="current-year">2026</span> NEXUS. Crafted with passion.</p>
+                <a href="#home" class="back-to-top" aria-label="Back to top">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="19" x2="12" y2="5"></line>
+                        <polyline points="5 12 12 5 19 12"></polyline>
+                    </svg>
+                </a>
             </div>
         </div>
     </footer>
